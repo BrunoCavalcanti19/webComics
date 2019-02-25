@@ -1,0 +1,52 @@
+
+/*Banner Inicial*/
+
+#banner{
+	width: 100%;
+	float: left;
+	background-image: url(../img/banner.jpg);
+    height: 625px;
+}
+
+.transparencia{
+	width: 100%;
+	float: left;
+	background-color: rgba(252,9,9,0.7);
+	height: 625px;
+}
+
+/*Barra de navegação*/
+
+.navegacao{
+	width: 100%;
+	float: left;
+	list-style:none;
+	box-sizing: border-box;
+	
+}
+
+.navegacao li {
+	font-size: 1.5em;
+	color: #fbfffe;
+	float: left;
+	padding-left: 1%;
+	padding-top: 10px;
+	font-family: "Comic Sans Ms";
+	text-shadow: 2px 2px #000000;
+	transition: transform 1s;
+}
+
+.navegacao li:hover{
+	transform:rotate(360deg);
+}
+
+#texto{
+	float: left;
+	width: 100%;
+	margin-top: 15%;
+	font-size: 2.5em;
+	text-align: center;
+	color: #ffffff;
+	text-shadow: 2px 2px #000000;
+	font-family: "Comic Sans Ms";
+}	

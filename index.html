@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>webComics</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+	<meta charset="utf-8">
+</head>
+<body>
+  <div id="banner">
+  	<label class="transparencia">
+  		<ul class="navegacao">
+  			<li>Destaques</li>
+  			<li> | </li>
+  			<li>Comics</li>
+  			<li> | </li>
+  			<li>Contato</li>
+  		</ul>
+  	
+  	<h2 id="texto"></h2>	
+		<script>
+			var i = 0;
+			var txt = '“Todos nós desejamos ter superpoderes. Todos desejamos que pudéssemos fazer mais do que podemos fazer”';
+			var speed = 60;
+			window.onload = typeWriter();
+			function typeWriter() {
+  				if (i < txt.length) {
+    				document.getElementById("texto").innerHTML += txt.charAt(i);
+    				i++;
+    				setTimeout(typeWriter, speed);
+  				}
+			}
+		</script>
+	</label>
+  </div>
+</body>
+</html>
