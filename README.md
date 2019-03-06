@@ -14,3 +14,6 @@
   		https://gateway.marvel.com:443/v1/public/characters/1009610/comics?limit=50&apikey=suaKey
 
  Feito isso, a aplicação irá funcionar.
+
+ email: brunocavalcanti48@gmail.com
+ Nome: Bruno de Lima Cavalcanti
