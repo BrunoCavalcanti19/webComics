@@ -15,5 +15,11 @@
 
  Feito isso, a aplicação irá funcionar.
 
+
+ Dificuldades:
+   Tive um pouco de dificuldade com a utilização da api da Marvel, visto que não sabia AngularJS e aprendi enquanto fazia o projeto.
+   Por algum motivo, que não sei explicar, o ng-route não quis funcionar. Dado esse problema, eu fiz uma aplicação com duas páginas, a index e a lista de quadrinhos, para não sobrecarregar a index.
+   Não implementei a div com os 10% mais raros, mas segue o mesmo principio dos mais lidos. Tanto que o código é basicamente o mesmo, só muda a forma como é definido o tamanho do array.
+
  email: brunocavalcanti48@gmail.com
  Nome: Bruno de Lima Cavalcanti
