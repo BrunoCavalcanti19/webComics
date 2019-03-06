@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="webComics">
+<head>
+	<title>Comics</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<script src="../lib/angular.js"></script>
+    <script src="../js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/controllers/comics.js"></script>
+ 
+</head>
+<body ng-controller="characters">
+	<div id="comics">
+		<nav class="menuFilter navbar-dark">
+			<a href="../index.html"><img class="backbutton" src="../img/left-arrow.png"></a>
+			<h3 class="comicFilter">Comics</h3>
+		</nav>
+		<div class="hqs" id='lista'>
+		   
+		  <div class="quadrinhos" ng-repeat = "tudo in revistas" data-toggle="modal" data-target="#myModal{{$index}}" >
+				<a href=""><img class="img-thumbnail" alt="Sem imagem disponivel" src="{{tudo.thumbnail.path +'.'+tudo.thumbnail.extension}}"></a>
+
+				
+		  </div>
+					
+		  </div>
+		   <div class="modal" id="myModal{{$index}}" ng-repeat = "hq in revistas">
+				<div class="modal-dialog">
+				    <div class="modal-content">
+
+				     
+				      <div class="modal-header">
+				        <h5 class="modal-title">Titulo: {{hq.title}}</h5>
+				       </div>
+
+				      <div class="modal-body">
+				        <b>Publicado: </b>{{hq.dates[0].date | date : dd/mm/yyyy}}<br>
+				        Sinopse : {{hq.description}}<br>
+				       	<b>Preço : {{hq.prices[0].price | currency : $}}
+				       </div>
+				    
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+				      </div>
+				    </div>
+				</div>
+		    </div>	
+    </div>
+</body>
+</html>

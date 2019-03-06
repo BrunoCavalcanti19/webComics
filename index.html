@@ -1,37 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="webComics">
 <head>
 	<title>webComics</title>
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
 	<meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+	<script src="./lib/angular.js"></script>
+  <script src="./js/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/controllers/comics.js"></script>
+
 </head>
-<body>
+<body ng-controller="characters">
+  <!--Banner Inicial-->
   <div id="banner">
-  	<label class="transparencia">
-  		<ul class="navegacao">
-  			<li>Destaques</li>
-  			<li> | </li>
-  			<li>Comics</li>
-  			<li> | </li>
-  			<li>Contato</li>
-  		</ul>
-  	
-  	<h2 id="texto"></h2>	
-		<script>
-			var i = 0;
-			var txt = '“Todos nós desejamos ter superpoderes. Todos desejamos que pudéssemos fazer mais do que podemos fazer”';
-			var speed = 60;
-			window.onload = typeWriter();
-			function typeWriter() {
-  				if (i < txt.length) {
-    				document.getElementById("texto").innerHTML += txt.charAt(i);
-    				i++;
-    				setTimeout(typeWriter, speed);
-  				}
-			}
-		</script>
-	</label>
+    <label class="transparencia">
+      <ul class="navegacao">
+        <a href="#destaques"><li>Mais Lidos</li></a>
+        <li> | </li>
+        <a ng-href="view/comics.html"><li>Comics</li></a>
+        <li> | </li>
+        <a href="#contatos"><li>Contato</li></a>
+      </ul>
+      <h2 id="texto"></h2>  
+      <script>
+      var i = 0;
+      var txt = '“Todos nós desejamos ter superpoderes. Todos desejamos que pudéssemos fazer mais do que podemos fazer”';
+      var speed = 60;
+      window.onload = typeWriter();
+      function typeWriter() {
+          if (i < txt.length) {
+            document.getElementById("texto").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+          }
+      }
+      </script>
+    </label>
   </div>
+ <!--Mais Lidos-->
+  <div id='destaques'>
+    <nav class="menuFilter navbar-dark">
+        
+        <h3 class="comicFilter">Mais Lidos</h3>
+   </nav>
+   <label class ='transparencia2'>
+      <div class="hqs" id='lista'>
+        <div class="quadrinhos" ng-repeat = "lidos in maisLidos track by $index" data-toggle="modal" data-target="#myModal{{$index}}" >
+          <a href=""><img class="img-thumbnail" alt="Sem imagem disponivel" src="{{lidos.thumbnail.path +'.'+lidos.thumbnail.extension}}"></a>
+        </div>
+      </div>
+      <div class="modal" id="myModal{{$index}}" ng-repeat = "hq in maisLidos track by $index">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+           
+              <div class="modal-header">
+                <h5 class="modal-title">Titulo: {{hq.title}}</h5>
+              </div>
+
+              <div class="modal-body">
+                <b>Publicado: </b>{{hq.dates[0].date | date : dd/mm/yyyy}}<br>
+                Sinopse : {{hq.description}}<br>
+                <b>Preço : {{hq.prices[0].price | currency : $}}
+              </div>
+          
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+        </div>
+      </div>  
+    </label>
+  </div>
+  <div class="divisoria"></div> 
+  <!--Contato-->
+  <div id="contatos">
+         <div class = 'telefone'>
+            <p> Telefone:</p>
+            <p>(XX)XXXXX-XXXX</p>
+            <p>(XX)XXXXX-XXXX</p>
+            <p>Email: </p>
+            <p>webcomics@batmail.com</p> 
+         </div>
+         <div>
+           <form class="formulario">
+             Fale Conosco
+             <input class="form-control" type="text" placeholder="Email">
+             <input class="form-control" type="option" placeholder="Assunto" style="margin-top: 20px;">
+             <input class="form-control" type="text" style="height: 100px ; margin-top:20px">
+           </form>
+         </div> 
+  </div>
+  <footer>
+    <div class="rodape">
+        {{quadrinho.attributionText}}
+    </div>
+  </footer>
 </body>
 </html>
